@@ -1,0 +1,8 @@
+{
+  "name": "corbis-research-skills",
+  "displayName": "Corbis Research Skills",
+  "version": "0.1.0",
+  "description": "Source-grounded research in finance, real estate, and economics: cited literature reviews, claim checks, BibTeX verification, and referee-style paper reviews through the Corbis research connector.",
+  "author": { "name": "Agentic Assets", "url": "https://www.corbis.ai" },
+  "license": "MIT"
+}
