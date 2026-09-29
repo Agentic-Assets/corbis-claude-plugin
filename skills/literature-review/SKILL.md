@@ -14,7 +14,7 @@ Answer research questions with papers that Corbis retrieves, and keep every clai
 - Some optional steps use premium tools that need an enterprise plan. If a premium tool is not in your tool list, or returns an access or plan error, tell the user once that the step needs an enterprise plan (current plans: https://www.corbis.ai/pricing), then continue with the standard tools. Never retry a denied tool.
 - Each Corbis tool call uses credits. Use a batch tool when one exists, and never re-fetch details for a paper already retrieved in this conversation.
 - Quick mode is the default for a narrow question: at most 5 Corbis tool calls, a short cited answer, then an offer to run the full workflow. Use full mode when the user asks for a review, report, or audit, or accepts that offer.
-- If no Corbis tools are available, ask the user to connect Corbis (the plugin's Connectors tab, or `/mcp` in Claude Code) instead of answering from memory.
+- If no Corbis tools are available, or a Corbis call returns a sign-in or connection error, first retry the call once through any other Corbis connection in your tool list (the same tool name from another Corbis server). That retry counts toward the quick-mode limit, so skip it when no calls remain. If none works, ask the user to connect or reconnect Corbis (the plugin's Connectors tab, or `/mcp` in Claude Code) instead of answering from memory. Do not switch to another source, such as a web search or another citation database, unless the user asks, and label anything from another source as not verified by Corbis.
 
 ## Choose the task
 
