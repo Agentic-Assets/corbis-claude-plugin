@@ -11,6 +11,9 @@
   "repository": "https://github.com/Agentic-Assets/corbis-claude-plugin",
   "license": "MIT",
   "privacyPolicyUrl": "https://www.corbis.ai/privacy",
+  "termsOfServiceUrl": "https://www.corbis.ai/terms",
+  "documentationUrl": "https://www.corbis.ai/docs/mcp-guide",
+  "supportUrl": "https://www.corbis.ai/contact",
   "keywords": [
     "research",
     "finance",
