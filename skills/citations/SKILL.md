@@ -1,6 +1,6 @@
 ---
 name: citations
-description: Verify, correct, format, and export academic references with the Corbis research connector. Use when the user asks to fix or check BibTeX, verify references or a bibliography, audit a .bib file, cite a paper in APA, MLA, Chicago, or Harvard style, or export citations as BibTeX, Markdown, or JSON.
+description: Use for every citation request, including citing or formatting a reference in APA, MLA, Chicago, or Harvard style (even a single paper), fixing or checking BibTeX, verifying references or a bibliography, auditing a .bib file, or exporting citations as BibTeX, Markdown, or JSON. Verifies, corrects, formats, and exports references with the Corbis research connector.
 ---
 
 # Citations
@@ -14,7 +14,7 @@ Check references against the Corbis paper index and format them without adding a
 - Some optional steps use premium tools that need an enterprise plan. If a premium tool is not in your tool list, or returns an access or plan error, tell the user once that the step needs an enterprise plan (current plans: https://www.corbis.ai/pricing), then continue with the standard tools. Never retry a denied tool.
 - Each Corbis tool call uses credits. Use a batch tool when one exists, and never re-fetch details for a paper already retrieved in this conversation.
 - Quick mode is the default for a narrow question: at most 5 Corbis tool calls, a short cited answer, then an offer to run the full workflow. Use full mode when the user asks for a review, report, or audit, or accepts that offer.
-- If no Corbis tools are available, ask the user to connect Corbis (the plugin's Connectors tab, or `/mcp` in Claude Code) instead of answering from memory.
+- If no Corbis tools are available, or a Corbis call returns a sign-in or connection error, ask the user to connect or reconnect Corbis (the plugin's Connectors tab, or `/mcp` in Claude Code) instead of answering from memory. Do not switch to another source, such as a web search or another citation database, unless the user asks, and label anything from another source as not verified by Corbis.
 
 ## Quick: verify BibTeX
 
@@ -31,7 +31,7 @@ Check references against the Corbis paper index and format them without adding a
 ## Full: verify, then format or export
 
 1. Run Quick steps 1 to 4, except that full mode has no 5-call cap: keep calling `verify_bibtex` in batches at the entry cap until every entry is checked, then report all of them.
-2. For matched and corrected entries, call `render_citations` with the matched work IDs or DOIs that `verify_bibtex` returned, in the requested format (BibTeX, Markdown, or JSON). Its `exports` already hold the file content and a suggested filename, built from full corpus metadata including complete author lists: give those to the user as the file. Use `export_citations` only for metadata the user supplied, never to rebuild records from rendered text.
+2. For matched and corrected entries, call `render_citations` with the matched work IDs or DOIs that `verify_bibtex` returned, in the requested format (BibTeX, Markdown, or JSON). Its `exports` already hold the file content and a suggested filename, built from full corpus metadata including complete author lists: give those to the user as the file, exactly as returned. Never write or extend BibTeX yourself: do not add a volume, issue, pages, publisher, or any other field that no tool returned in this conversation. Use `export_citations` only for metadata the user supplied, never to rebuild records from rendered text.
 3. For a named style (APA, MLA, Chicago, or Harvard), first call `get_paper_details_batch` on the matched IDs or DOIs, at most 25 per call, because `verify_bibtex` returns match IDs and correction notes, not full records. Then call `format_citation` with that style and the returned metadata, at most 50 papers per call, and combine the results in order. For an entry with no match, use only complete metadata the user supplied, and say that formatting supplied fields does not verify them.
 4. Keep unverifiable entries out of verified output and list them separately for the user to fix.
 

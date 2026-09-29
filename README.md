@@ -14,10 +14,10 @@ Narrow questions get a quick answer that uses at most five Corbis tool calls, fo
 
 - **claude.ai and Cowork:** after installing the plugin, open its Connectors tab, connect Corbis, and sign in with your Corbis account.
 - **Claude Code:** install the plugin, run `/mcp`, choose `corbis`, and complete the browser sign-in.
-- **Claude Code with an API key:** if you prefer a key to browser sign-in, create a personal MCP API key in Corbis Settings and add the server yourself. Use this instead of the plugin's connection, not alongside it, and never put a key in the URL.
+- **Claude Code with an API key:** if you prefer a key to browser sign-in, create a personal MCP API key in Corbis Settings and add the server yourself, replacing the placeholder below with your key. Use this instead of the plugin's connection, not alongside it, and never put a key in the URL.
 
 ```bash
-claude mcp add --transport http corbis https://www.corbis.ai/api/mcp/universal --header "Authorization: Bearer $CORBIS_MCP_API_KEY"
+claude mcp add --transport http corbis https://www.corbis.ai/api/mcp/universal --header "Authorization: Bearer <your-corbis-mcp-api-key>"
 ```
 
 If the Corbis connector is already added another way, such as through the Claude Code research plugin, a custom connector, or a manual `claude mcp add`, Claude sees the same tools twice. Keep one connection: in Claude Code, disable the extra with `/mcp` or `claude plugin disable`.
@@ -28,7 +28,7 @@ Every skill works on standard Corbis plans. A few optional steps (managed litera
 
 ## Data and privacy
 
-The plugin stores nothing. When a skill runs, your research questions, the manuscript excerpts or summaries a tool call needs, and the BibTeX entries you ask it to verify are sent to your Corbis account at www.corbis.ai. Privacy policy: https://www.corbis.ai/privacy
+The plugin is instructions only: it contains no hooks, scripts, or local servers, and its one connection is the Corbis research connector at www.corbis.ai. It stores nothing. When a skill runs, your research questions, the manuscript excerpts or summaries a tool call needs, and the BibTeX entries you ask it to verify are sent to your Corbis account at www.corbis.ai. Privacy policy: https://www.corbis.ai/privacy
 
 ## Scope and limits
 
