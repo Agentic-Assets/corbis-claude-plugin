@@ -3,9 +3,22 @@
   "displayName": "Corbis Research Skills",
   "version": "0.1.1",
   "description": "Source-grounded research in finance, real estate, and economics: cited literature reviews, claim checks, BibTeX verification, and referee-style paper reviews through the Corbis research connector.",
-  "author": { "name": "Agentic Assets", "url": "https://www.corbis.ai" },
+  "author": {
+    "name": "Agentic Assets",
+    "url": "https://www.corbis.ai"
+  },
   "homepage": "https://www.corbis.ai",
   "repository": "https://github.com/Agentic-Assets/corbis-claude-plugin",
   "license": "MIT",
-  "keywords": ["research", "finance", "real-estate", "economics", "literature-review", "citations", "bibtex", "peer-review"]
+  "privacyPolicyUrl": "https://www.corbis.ai/privacy",
+  "keywords": [
+    "research",
+    "finance",
+    "real-estate",
+    "economics",
+    "literature-review",
+    "citations",
+    "bibtex",
+    "peer-review"
+  ]
 }
