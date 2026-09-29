@@ -1,6 +1,6 @@
 ---
 name: citations
-description: Use for every citation request, including citing or formatting a reference in APA, MLA, Chicago, or Harvard style (even a single paper), fixing or checking BibTeX, verifying references or a bibliography, auditing a .bib file, or exporting citations as BibTeX, Markdown, or JSON. Verifies, corrects, formats, and exports references with the Corbis research connector.
+description: Use for academic citation requests, including citing or formatting a paper or article in APA, MLA, Chicago, or Harvard style (even a single one), fixing or checking BibTeX, verifying references or a bibliography, auditing a .bib file, or exporting citations as BibTeX, Markdown, or JSON. Verifies, corrects, formats, and exports references with the Corbis research connector.
 ---
 
 # Citations
@@ -14,7 +14,7 @@ Check references against the Corbis paper index and format them without adding a
 - Some optional steps use premium tools that need an enterprise plan. If a premium tool is not in your tool list, or returns an access or plan error, tell the user once that the step needs an enterprise plan (current plans: https://www.corbis.ai/pricing), then continue with the standard tools. Never retry a denied tool.
 - Each Corbis tool call uses credits. Use a batch tool when one exists, and never re-fetch details for a paper already retrieved in this conversation.
 - Quick mode is the default for a narrow question: at most 5 Corbis tool calls, a short cited answer, then an offer to run the full workflow. Use full mode when the user asks for a review, report, or audit, or accepts that offer.
-- If no Corbis tools are available, or a Corbis call returns a sign-in or connection error, ask the user to connect or reconnect Corbis (the plugin's Connectors tab, or `/mcp` in Claude Code) instead of answering from memory. Do not switch to another source, such as a web search or another citation database, unless the user asks, and label anything from another source as not verified by Corbis.
+- If no Corbis tools are available, or a Corbis call returns a sign-in or connection error, first retry the call once through any other Corbis connection in your tool list (the same tool name from another Corbis server). If none works, ask the user to connect or reconnect Corbis (the plugin's Connectors tab, or `/mcp` in Claude Code) instead of answering from memory. Do not switch to another source, such as a web search or another citation database, unless the user asks, and label anything from another source as not verified by Corbis.
 
 ## Quick: verify BibTeX
 
